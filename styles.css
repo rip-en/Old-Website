@@ -83,20 +83,20 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust min size */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
     gap: 1rem;
-    padding: 1rem; /* Add some padding for aesthetics */
+    padding: 1rem; 
 }
 
 .project {
     cursor: pointer;
     background-color: #fff;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    max-height: 300px; /* Limit height for uniformity */
-    overflow: hidden; /* Hide overflow */
+    max-height: 250px;
+    overflow: hidden;
 }
 
 .project img {
