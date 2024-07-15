@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
     const projects = document.querySelectorAll('.project');
-    const popup = document.getElementById('popup');
-    const popupImg = document.getElementById('popup-img');
-    const popupDesc = document.getElementById('popup-desc');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    let currentProjectIndex = 0;
     const cvButton = document.getElementById('cv-button');
     const cvPopup = document.getElementById('cv-popup');
     const cvIframe = document.getElementById('cv-iframe');
@@ -23,19 +23,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const openPopup = (event) => {
-        const project = event.currentTarget;
-        const imageSrc = project.getAttribute('data-image');
-        const description = project.getAttribute('data-description');
+    const updateProjectDisplay = () => {
+        projects.forEach((project, index) => {
+            project.style.display = index === currentProjectIndex ? 'block' : 'none';
+        });
+    };
 
-        popupImg.src = imageSrc;
-        popupDesc.textContent = description;
-        popup.style.display = 'flex';
-    }
+    prevBtn.addEventListener('click', () => {
+        currentProjectIndex = (currentProjectIndex === 0) ? projects.length - 1 : currentProjectIndex - 1;
+        updateProjectDisplay();
+    });
 
-    const closePopup = () => {
-        popup.style.display = 'none';
-    }
+    nextBtn.addEventListener('click', () => {
+        currentProjectIndex = (currentProjectIndex === projects.length - 1) ? 0 : currentProjectIndex + 1;
+        updateProjectDisplay();
+    });
+
+    updateProjectDisplay(); // Initial display
+    });
 
     window.addEventListener('scroll', revealSection);
     close.addEventListener('click', closePopup);
