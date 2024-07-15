@@ -81,14 +81,27 @@ body {
     scroll-snap-type: y mandatory;
 }
 
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
 .project {
     cursor: pointer;
-    display: inline-block;
-    margin: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.05);
 }
 
 .project img {
-    width: 200px;
+    width: 100%;
     height: auto;
     border-radius: 10px;
 }
