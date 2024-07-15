@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
      // Open CV Popup
      cvButton.addEventListener('click', function() {
-        cvIframe.src = 'your-cv.pdf'; // Replace with your CV PDF URL
+        cvIframe.src = 'CV.pdf'; // Replace with your CV PDF URL
         cvPopup.style.display = 'flex';
     });
 
