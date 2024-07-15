@@ -120,6 +120,11 @@ body {
     align-items: center;
 }
 
+.popup-content {
+    text-align: center;
+    color: #fff;
+}
+
 .popup img {
     max-width: 80%;
     height: auto;
