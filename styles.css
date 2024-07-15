@@ -106,6 +106,21 @@ body {
     border-radius: 10px;
 }
 
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
 .popup {
     display: none;
     position: fixed;

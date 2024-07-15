@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const popup = document.getElementById('popup');
     const popupImg = document.getElementById('popup-img');
     const popupDesc = document.getElementById('popup-desc');
+    const cvButton = document.getElementById('cv-button');
+    const cvPopup = document.getElementById('cv-popup');
+    const cvIframe = document.getElementById('cv-iframe');
     const close = document.querySelector('.close');
 
     const revealSection = () => {
@@ -42,6 +45,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     projects.forEach(project => {
         project.addEventListener('click', openPopup);
+    });
+
+     // Open CV Popup
+     cvButton.addEventListener('click', function() {
+        cvIframe.src = 'your-cv.pdf'; // Replace with your CV PDF URL
+        cvPopup.style.display = 'flex';
+    });
+
+    // Close Popup
+    close.addEventListener('click', function() {
+        cvPopup.style.display = 'none';
+        cvIframe.src = ''; // Clear the iframe source to stop the PDF
+    });
+
+    // Close Popup when clicking outside the iframe
+    cvPopup.addEventListener('click', function(e) {
+        if (e.target === cvPopup) {
+            cvPopup.style.display = 'none';
+            cvIframe.src = '';
+        }
     });
 
     // Initial check in case some sections are already in view
