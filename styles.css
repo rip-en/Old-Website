@@ -81,32 +81,25 @@ body {
     scroll-snap-type: y mandatory;
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-    gap: 1rem;
-    padding: 1rem; 
+.project-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.project {
+.nav-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
     cursor: pointer;
-    background-color: #fff;
-    padding: 0.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    max-height: 250px;
-    overflow: hidden;
+    margin: 0 10px;
+    font-size: 24px;
 }
 
-.project img {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px;
-}
-
-.project:hover {
-    transform: scale(1.05);
+.nav-btn:hover {
+    background-color: #555;
 }
 
 button {
