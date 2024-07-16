@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     overflow-x: hidden;
+    scroll-snap-type: y mandatory;
 }
 
 header {
@@ -71,14 +72,6 @@ a i {
 
 a:hover {
     text-decoration: underline;
-}
-
-html {
-    scroll-snap-type: y mandatory;
-}
-
-body {
-    scroll-snap-type: y mandatory;
 }
 
 .projects-grid {
