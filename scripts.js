@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === projectPopup) closePopup(projectPopup);
     });
 
-    // Open CV Popup
-    cvButton.addEventListener('click', function() {
-        cvIframe.src = 'CV.pdf';
+     // Open CV Popup
+     cvButton.addEventListener('click', function() {
+        cvIframe.src = 'CV.pdf'; // Replace with your CV PDF URL
         cvPopup.style.display = 'flex';
     });
 
