@@ -11,6 +11,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const cvIframe = document.getElementById('cv-iframe');
     const cvClose = document.getElementById('cv-close');
 
+    let isScrolling;
+
+    // Scroll snapping functionality
+    const snapScroll = () => {
+        const scrollPosition = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        let sectionIndex = Math.round(scrollPosition / windowHeight);
+        
+        window.scrollTo({
+            top: sectionIndex * windowHeight,
+            behavior: 'smooth'
+        });
+    };
+
+    window.addEventListener('scroll', () => {
+        window.clearTimeout(isScrolling);
+
+        isScrolling = setTimeout(() => {
+            snapScroll();
+        }, 100);
+    });
+
     const revealSection = () => {
         const triggerBottom = window.innerHeight / 1.2;
 
@@ -50,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === projectPopup) closePopup(projectPopup);
     });
 
-     // Open CV Popup
-     cvButton.addEventListener('click', function() {
-        cvIframe.src = 'CV.pdf'; // Replace with your CV PDF URL
+    // Open CV Popup
+    cvButton.addEventListener('click', function() {
+        cvIframe.src = '"D:\Projects\Github\rip-en.github.io\CV.pdf"'; // Ensure the correct path to your CV PDF
         cvPopup.style.display = 'flex';
     });
 
