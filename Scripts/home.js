@@ -21,6 +21,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Handle scroll event to add/remove visible class
+    const onScroll = () => {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                section.classList.add('visible');
+            } else {
+                section.classList.remove('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', onScroll);
+
     // Handle click on projects to open popup
     const projects = document.querySelectorAll('.project');
     const projectPopup = document.getElementById('popup');
@@ -54,4 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === projectPopup) closePopup(projectPopup);
         });
     }
+
+    // Trigger initial scroll check
+    onScroll();
 });
