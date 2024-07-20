@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
-    
+
     const projects = document.querySelectorAll('.project');
     const projectPopup = document.getElementById('popup');
     const projectPopupImg = document.getElementById('popup-img');
     const projectPopupDesc = document.getElementById('popup-desc');
     const projectClose = document.getElementById('project-close');
+
+    const cvButton = document.getElementById('cv-button');
 
     let currentSectionIndex = 0;
 
@@ -73,6 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === projectPopup) closePopup(projectPopup);
         });
     }
-    // Initial check in case some sections are already in view
+
+    if (cvButton) {
+        cvButton.addEventListener('click', () => {
+            window.location.href = 'cv.html'; 
+        });
+    }
     revealSection();
 });
