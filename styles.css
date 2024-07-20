@@ -5,6 +5,7 @@ body {
     background-color: #f4f4f4;
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
+    height: 100vh;
 }
 
 header {
@@ -32,6 +33,7 @@ header {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 .section.visible {

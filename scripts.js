@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const cvIframe = document.getElementById('cv-iframe');
     const cvClose = document.getElementById('cv-close');
 
+    let isScrolling = false;
+
     const revealSection = () => {
         const triggerBottom = window.innerHeight / 1.2;
 
@@ -25,7 +27,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
+    const scrollToNextSection = () => {
+        if (isScrolling) return;
+        isScrolling = true;
+
+        const currentSection = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2).closest('.section');
+        if (currentSection) {
+            const nextSection = currentSection.nextElementSibling;
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        setTimeout(() => {
+            isScrolling = false;
+        }, 1000); // Adjust the delay to match the scroll animation duration
+    };
+
     window.addEventListener('scroll', revealSection);
+    window.addEventListener('wheel', (event) => {
+        if (event.deltaY > 0) {
+            scrollToNextSection();
+        }
+    });
 
     const openPopup = (event) => {
         const project = event.currentTarget;
@@ -56,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (cvButton) {
         cvButton.addEventListener('click', function() {
-            cvIframe.src = 'https://github.com/rip-en/rip-en.github.io/blob/main/CV.pdf'; // Ensure the correct path to your CV PDF
+            cvIframe.src = 'https://raw.githubusercontent.com/rip-en/rip-en.github.io/main/CV.pdf'; // Ensure the correct path to your CV PDF
             cvPopup.style.display = 'flex';
         });
     }
