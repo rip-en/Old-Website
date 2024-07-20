@@ -40,22 +40,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle click on projects to open popup
     const projects = document.querySelectorAll('.project');
     const projectPopup = document.getElementById('popup');
-    const projectPopupImg = document.getElementById('popup-img');
-    const projectPopupDesc = document.getElementById('popup-desc');
+    const popupImagesContainer = projectPopup.querySelector('.popup-images');
+    const popupTitle = document.getElementById('popup-title');
+    const popupSubtitle = document.getElementById('popup-subtitle');
     const projectClose = document.getElementById('project-close');
 
     const openPopup = (event) => {
         const project = event.currentTarget;
-        const imageSrc = project.getAttribute('data-image');
-        const description = project.getAttribute('data-description');
+        const images = JSON.parse(project.getAttribute('data-images'));
+        const title = project.getAttribute('data-title');
+        const subtitle = project.getAttribute('data-subtitle');
 
-        projectPopupImg.src = imageSrc;
-        projectPopupDesc.textContent = description;
+        // Clear previous content
+        popupImagesContainer.innerHTML = '';
+        popupTitle.textContent = title;
+        popupSubtitle.textContent = subtitle;
+
+        // Add images to the popup
+        images.forEach(imageSrc => {
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = title;
+            popupImagesContainer.appendChild(img);
+        });
+
         projectPopup.style.display = 'flex';
     };
 
-    const closePopup = (popupElement) => {
-        popupElement.style.display = 'none';
+    const closePopup = () => {
+        projectPopup.style.display = 'none';
     };
 
     projects.forEach(project => {
@@ -63,11 +76,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     if (projectClose) {
-        projectClose.addEventListener('click', () => closePopup(projectPopup));
+        projectClose.addEventListener('click', closePopup);
     }
     if (projectPopup) {
         projectPopup.addEventListener('click', (e) => {
-            if (e.target === projectPopup) closePopup(projectPopup);
+            if (e.target === projectPopup) closePopup();
         });
     }
 

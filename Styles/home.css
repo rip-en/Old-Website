@@ -140,12 +140,6 @@ li {
     align-items: center;
 }
 
-.popup iframe {
-    width: 100%;
-    height: 100%;
-    border: none; /* Remove border if present */
-}
-
 .popup-content {
     background: #fff;
     padding: 20px;
@@ -154,6 +148,33 @@ li {
     width: 80%;
     height: 80%;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-images {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    width: 100%;
+}
+
+.popup-images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.popup-text {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.popup iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove border if present */
 }
 
 .close {
