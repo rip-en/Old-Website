@@ -1,15 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
+    
     const projects = document.querySelectorAll('.project');
     const projectPopup = document.getElementById('popup');
     const projectPopupImg = document.getElementById('popup-img');
     const projectPopupDesc = document.getElementById('popup-desc');
     const projectClose = document.getElementById('project-close');
-    
-    const cvButton = document.getElementById('cv-button');
-    const cvPopup = document.getElementById('cv-popup');
-    const cvIframe = document.getElementById('cv-iframe');
-    const cvClose = document.getElementById('cv-close');
 
     let currentSectionIndex = 0;
 
@@ -77,23 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === projectPopup) closePopup(projectPopup);
         });
     }
-
-    if (cvButton) {
-        cvButton.addEventListener('click', function() {
-            cvIframe.src = 'https://raw.githubusercontent.com/rip-en/rip-en.github.io/main/CV.html'; // Ensure the correct path to your CV PDF
-            cvPopup.style.display = 'flex';
-        });
-    }
-    
-    if (cvClose) {
-        cvClose.addEventListener('click', () => closePopup(cvPopup));
-    }
-    if (cvPopup) {
-        cvPopup.addEventListener('click', (e) => {
-            if (e.target === cvPopup) closePopup(cvPopup);
-        });
-    }
-
     // Initial check in case some sections are already in view
     revealSection();
 });
