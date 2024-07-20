@@ -33,7 +33,7 @@ nav.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 10px 20px; /* Padding around nav items */
     background-color: #333;
     color: #fff;
     position: fixed;
@@ -45,13 +45,15 @@ nav.header {
 nav.header a {
     color: #fff;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 15px; /* Space between links */
+    display: flex;
+    align-items: center;
 }
 
 nav.header img {
     width: 20px;
     height: 20px;
-    margin-left: 10px;
+    margin: 0 5px; /* Space around icons */
 }
 
 .container {
