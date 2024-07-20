@@ -11,28 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const cvIframe = document.getElementById('cv-iframe');
     const cvClose = document.getElementById('cv-close');
 
-    let isScrolling;
-
-    // Scroll snapping functionality
-    const snapScroll = () => {
-        const scrollPosition = window.pageYOffset;
-        const windowHeight = window.innerHeight;
-        let sectionIndex = Math.round(scrollPosition / windowHeight);
-        
-        window.scrollTo({
-            top: sectionIndex * windowHeight,
-            behavior: 'smooth'
-        });
-    };
-
-    window.addEventListener('scroll', () => {
-        window.clearTimeout(isScrolling);
-
-        isScrolling = setTimeout(() => {
-            snapScroll();
-        }, 100);
-    });
-
     const revealSection = () => {
         const triggerBottom = window.innerHeight / 1.2;
 
@@ -46,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     };
+
+    window.addEventListener('scroll', revealSection);
 
     const openPopup = (event) => {
         const project = event.currentTarget;
@@ -61,28 +41,34 @@ document.addEventListener('DOMContentLoaded', function() {
         popupElement.style.display = 'none';
     };
 
-    window.addEventListener('scroll', revealSection);
-
     projects.forEach(project => {
         project.addEventListener('click', openPopup);
     });
 
-    projectClose.addEventListener('click', () => closePopup(projectPopup));
-    projectPopup.addEventListener('click', (e) => {
-        if (e.target === projectPopup) closePopup(projectPopup);
-    });
+    if (projectClose) {
+        projectClose.addEventListener('click', () => closePopup(projectPopup));
+    }
+    if (projectPopup) {
+        projectPopup.addEventListener('click', (e) => {
+            if (e.target === projectPopup) closePopup(projectPopup);
+        });
+    }
 
-    // Open CV Popup
-    cvButton.addEventListener('click', function() {
-        cvIframe.src = 'https://github.com/rip-en/rip-en.github.io/raw/main/CV.pdf'; // Ensure the correct path to your CV PDF
-        cvPopup.style.display = 'flex';
-    });
-
-    // Close CV Popup
-    cvClose.addEventListener('click', () => closePopup(cvPopup));
-    cvPopup.addEventListener('click', (e) => {
-        if (e.target === cvPopup) closePopup(cvPopup);
-    });
+    if (cvButton) {
+        cvButton.addEventListener('click', function() {
+            cvIframe.src = 'https://github.com/rip-en/rip-en.github.io/blob/main/CV.pdf'; // Ensure the correct path to your CV PDF
+            cvPopup.style.display = 'flex';
+        });
+    }
+    
+    if (cvClose) {
+        cvClose.addEventListener('click', () => closePopup(cvPopup));
+    }
+    if (cvPopup) {
+        cvPopup.addEventListener('click', (e) => {
+            if (e.target === cvPopup) closePopup(cvPopup);
+        });
+    }
 
     // Initial check in case some sections are already in view
     revealSection();
