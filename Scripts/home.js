@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle scroll event to add/remove visible class
     const onScroll = () => {
         const scrollPosition = window.scrollY + window.innerHeight / 2;
-        sections.forEach((section, index) => {
+        sections.forEach((section) => {
             const sectionTop = section.offsetTop;
             const sectionBottom = sectionTop + section.offsetHeight;
             if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {

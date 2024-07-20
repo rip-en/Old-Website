@@ -28,8 +28,8 @@ section.section {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 1s, transform 1s;
     padding: 2rem;
     background-color: #fff;
@@ -37,11 +37,6 @@ section.section {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     scroll-snap-align: start; /* Snap alignment */
-}
-
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .content {
@@ -112,7 +107,6 @@ a:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
@@ -131,6 +125,7 @@ a:hover {
     position: relative;
     width: 80%;
     height: 80%;
+    overflow: auto;
 }
 
 .close {
