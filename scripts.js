@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const cvIframe = document.getElementById('cv-iframe');
     const cvClose = document.getElementById('cv-close');
 
+    let currentSectionIndex = 0;
+
     const revealSection = () => {
         const triggerBottom = window.innerHeight / 1.2;
 
@@ -25,6 +27,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const scrollToNextSection = (direction) => {
+        if (direction === 'down' && currentSectionIndex < sections.length - 1) {
+            currentSectionIndex++;
+        } else if (direction === 'up' && currentSectionIndex > 0) {
+            currentSectionIndex--;
+        }
+        sections[currentSectionIndex].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+        revealSection();
+
+        let currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY) {
+            scrollToNextSection('down');
+        } else if (currentScrollY < lastScrollY) {
+            scrollToNextSection('up');
+        }
+        lastScrollY = currentScrollY;
+    });
+
+
     const openPopup = (event) => {
         const project = event.currentTarget;
         const imageSrc = project.getAttribute('data-image');
@@ -38,8 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const closePopup = (popupElement) => {
         popupElement.style.display = 'none';
     };
-
-    window.addEventListener('scroll', revealSection);
 
     projects.forEach(project => {
         project.addEventListener('click', openPopup);
@@ -56,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (cvButton) {
         cvButton.addEventListener('click', function() {
-            cvIframe.src = 'https://github.com/rip-en/rip-en.github.io/blob/main/CV.html'; // Ensure the correct path to your CV PDF
+            cvIframe.src = 'https://raw.githubusercontent.com/rip-en/rip-en.github.io/main/CV.html'; // Ensure the correct path to your CV PDF
             cvPopup.style.display = 'flex';
         });
     }
