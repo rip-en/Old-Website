@@ -43,8 +43,8 @@ header nav a {
     font-weight: bold;
 }
 
-.projects-container {
-    margin-top: 5rem; /* Adjust if needed to account for header */
+.section {
+    margin-top: 7rem; /* Ensure enough space below the header */
     padding: 2rem;
     display: flex;
     justify-content: center;
