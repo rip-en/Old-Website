@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
-    const sectionArray = Array.from(sections);
     let currentSectionIndex = 0;
 
-    // Scroll to the specified section
+    // Function to scroll to the specified section
     const scrollToSection = (index) => {
-        if (index >= 0 && index < sectionArray.length) {
-            sectionArray[index].scrollIntoView({ behavior: 'smooth' });
+        if (index >= 0 && index < sections.length) {
+            sections[index].scrollIntoView({ behavior: 'smooth' });
             currentSectionIndex = index;
         }
     };
