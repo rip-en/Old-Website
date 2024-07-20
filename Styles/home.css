@@ -1,11 +1,14 @@
 /* Base Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+* {
     padding: 0;
-    background-color: #f4f4f4;
-    overflow-x: hidden;
-    scroll-snap-type: y mandatory; /* Snap scrolling behavior */
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+body {
+    font-family: sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
 header {
@@ -18,13 +21,12 @@ header {
     top: 0;
     z-index: 1000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 header h1 {
     margin: 0;
-    flex: 1;
 }
 
 header nav {
@@ -91,10 +93,19 @@ a.btn:hover {
 .social-buttons a {
     background-color: #fff;
     border: 1px solid #ddd;
-    padding: 10px;
+    width: 125px; /* Fixed width */
+    height: 50px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     color: #333;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.social-buttons a img {
+    width: 20px;
+    height: 20px;
 }
 
 .social-buttons a:hover {
