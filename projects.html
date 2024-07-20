@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Ebrahim Nazmul</title>
+    <link rel="stylesheet" href="Styles/projects.css">
+</head>
+<body>
+    <header>
+        <h1>Portfolio</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+        </nav>
+    </header>
+
+    <section class="section" id="projects">
+        <div class="content">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project"  
+                     data-images='["Assets/nea.png", "Assets/nea2.png", "Assets/nea3.png", "Assets/nea4.png"]' 
+                     data-title="NEA for 2024 A-Level Computer Science" 
+                     data-subtitle="Created a multiplayer FPS, round-based zombie shooter game, in Unity. Used Photon and MySQL to create a database allowing for an account, leaderboard and shop system.">
+                    <img src="Assets/nea.png" alt="Multiplayer Zombie FPS">
+                    <p>NEA for 2024 A-Level Computer Science</p>
+                </div>
+                <div class="project" 
+                     data-images='["Assets/white.jpg", "Assets/white2.jpg"]' 
+                     data-title="Project 2" 
+                     data-subtitle="Description for project 2">
+                    <img src="Assets/white.jpg" alt="Project 2">
+                    <p>Project 2</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="popup" class="popup" role="dialog">
+        <span class="close" id="project-close" role="button" tabindex="0" aria-label="Close Project Popup">&times;</span>
+        <div class="popup-content">
+            <div class="popup-images"></div>
+            <div class="popup-text">
+                <h1 id="popup-title"></h1>
+                <h2 id="popup-subtitle"></h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts/projects.js"></script>
+</body>
+</html>
