@@ -47,7 +47,8 @@ header nav a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 5rem); /* Adjust height to fill viewport below the header */
+    height: 100vh; /* Full viewport height */
+    width: 100vw;/* Adjust height to fill viewport below the header */
     padding: 2rem;
     background-color: #fff;
     overflow: auto; /* Allow scrolling if content overflows */
