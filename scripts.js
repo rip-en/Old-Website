@@ -23,9 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 section.classList.remove('visible');
             }
         });
-    };
-
-    window.addEventListener('scroll', revealSection);
+    }
 
     const openPopup = (event) => {
         const project = event.currentTarget;
@@ -40,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const closePopup = (popupElement) => {
         popupElement.style.display = 'none';
     };
+
+    window.addEventListener('scroll', revealSection);
 
     projects.forEach(project => {
         project.addEventListener('click', openPopup);
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (cvButton) {
         cvButton.addEventListener('click', function() {
-            cvIframe.src = 'https://raw.githubusercontent.com/rip-en/rip-en.github.io/main/CV.html'; // Ensure the correct path to your CV PDF
+            cvIframe.src = 'https://github.com/rip-en/rip-en.github.io/blob/main/CV.html'; // Ensure the correct path to your CV PDF
             cvPopup.style.display = 'flex';
         });
     }
