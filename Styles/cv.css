@@ -43,24 +43,18 @@ header nav a {
 }
 
 .cv-container {
-    margin-top: 5rem; /* Space to account for the header */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 5rem); /* Adjust height to fill viewport below the header */
-    width: 100vw; /* Full viewport width */
-    padding: 2rem;
-    background-color: #fff;
-    overflow: auto; /* Allow scrolling if content overflows */
 }
 
 .resume-image {
     width: 100%;
-    height: auto; /* Maintain aspect ratio while scaling */
+    height: 100%;
     border: none; /* Remove border if present */
-    max-width: 100%; /* Prevent overflow horizontally */
-    max-height: 100vh; /* Prevent overflow vertically */
-    object-fit: contain; /* Scale while maintaining aspect ratio */
 }
 
 @media (max-width: 768px) {
